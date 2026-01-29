@@ -1,4 +1,94 @@
-/* Shop grid + product cards */
+/* ================================
+   Super Ninja Monkey Cards Styles
+   ================================ */
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: white;
+  padding: 30px;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.tagline {
+  color: #444;
+  margin-top: 8px;
+}
+
+/* Navigation */
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #222;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Layout */
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* Card Sections */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* ================================
+   Shop Grid + Product Cards
+   ================================ */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -29,6 +119,7 @@
   margin: 6px 0 10px 0;
 }
 
+/* Badge labels (Personal / Consignment) */
 .badge {
   display: inline-block;
   font-size: 12px;
@@ -37,4 +128,3 @@
   background: #eee;
   margin-bottom: 8px;
 }
-
