@@ -131,3 +131,17 @@ footer {
   background: #eee;
   margin-bottom: 8px;
 }
+/* Front + Back image layout */
+.card-images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card-images img {
+  width: 48%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
