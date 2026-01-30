@@ -45,7 +45,7 @@ nav a:hover {
 
 /* Main Layout */
 main {
-  max-width: 1200px;   /* wider like a real catalog */
+  max-width: 1300px;   /* wider like a real catalog */
   margin: 30px auto;
   padding: 0 16px;
 }
