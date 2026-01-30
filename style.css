@@ -224,3 +224,12 @@ footer {
     max-width: 100%;
   }
 }
+/* Keep product cards uniform and align buttons */
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product .button {
+  margin-top: auto; /* pushes button to the bottom */
+}
