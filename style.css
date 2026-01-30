@@ -203,13 +203,14 @@ footer {
 }
 .banner {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;   /* Match your desktop banner size */
   height: auto;
-  object-fit: contain;   /* shows full banner */
+  object-fit: contain;
   border-radius: 14px;
-  margin: 0 auto 12px auto;
+  margin: 0 auto 16px auto;
   display: block;
 }
+
 @media (max-width: 600px) {
   .banner {
     max-width: 100%;
