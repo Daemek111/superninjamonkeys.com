@@ -185,5 +185,26 @@
   <footer>
     <p>© 2026 Super Ninja Monkey Cards</p>
   </footer>
+  <!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Zoomed card image">
+</div>
+
+<script>
+  function openLightbox(src) {
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    box.classList.add('open');
+  }
+
+  function closeLightbox() {
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    box.classList.remove('open');
+    img.src = '';
+  }
+</script>
+
 </body>
 </html>
