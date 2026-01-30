@@ -67,14 +67,19 @@ main {
 
 /* Buttons */
 .button {
-  display: inline-block;
-  padding: 10px 15px;
+  display: flex;                /* makes centering perfect */
+  justify-content: center;      /* horizontal center */
+  align-items: center;          /* vertical center */
+  text-align: center;
+
   background: black;
   color: white;
-  border-radius: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
 }
+
 
 .button:hover {
   opacity: 0.85;
