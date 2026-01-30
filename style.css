@@ -267,4 +267,18 @@ footer {
   border-radius: 12px;
   background: white;
 }
+/* Sold badge + sold card styling */
+.badge.sold {
+  background: #ffe5e5;
+  color: #b00020;
+}
+
+.product.sold {
+  opacity: 0.75;
+}
+
+.product.sold .button {
+  pointer-events: none;
+  opacity: 0.6;
+}
 
