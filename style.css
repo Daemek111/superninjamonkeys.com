@@ -201,3 +201,11 @@ footer {
   display: inline-block;
   min-width: 90px;
 }
+.banner {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 14px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
