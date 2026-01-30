@@ -141,14 +141,14 @@ footer {
 }
 
 .card-images img {
-  width: 48%;
+  width: 49%;
   aspect-ratio: 2 / 3;     /* Forces portrait card shape */
   object-fit: contain;     /* Shows full image */
   object-position: center;
   background: #f8f8f8;
   border-radius: 10px;
   border: 1px solid #eee;
-  padding: 8px;
+  padding: 4px;
 }
 
 
