@@ -181,3 +181,19 @@ footer {
     font-size: 0.95rem;
   }
 }
+/* Listing details */
+.details {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 12px 0;
+  text-align: left;
+}
+
+.details li {
+  margin: 4px 0;
+}
+
+.details b {
+  display: inline-block;
+  min-width: 90px;
+}
