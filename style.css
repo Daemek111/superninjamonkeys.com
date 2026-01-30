@@ -197,12 +197,16 @@ footer {
 }
 
 .details li {
-  margin: 4px 0;
+  margin: 2px 0;          /* tighter spacing */
+  line-height: 1.25;      /* cleaner text wrap */
 }
 
+
 .details b {
-  display: inline-block;
-  min-width: 90px;
+  display: inline;
+  font-weight: 700;
+}
+
 }
 .banner {
   width: 100%;
