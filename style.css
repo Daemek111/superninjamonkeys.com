@@ -231,5 +231,7 @@ footer {
 }
 
 .product .button {
-  margin-top: auto; /* pushes button to the bottom */
+  margin-top: auto;
+  margin-bottom: 6px;
 }
+
