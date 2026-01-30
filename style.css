@@ -321,4 +321,18 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* Highlight mini-sections */
+.highlight {
+  border-left: 6px solid #111;
+  background: linear-gradient(90deg, #fff7e6, #ffffff);
+}
+
+.highlight h2 {
+  margin-top: 0;
+}
+
+.tip {
+  border-left: 6px solid #111;
+  background: linear-gradient(90deg, #e8f0ff, #ffffff);
+}
 
