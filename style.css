@@ -281,4 +281,44 @@ footer {
   pointer-events: none;
   opacity: 0.6;
 }
+/* Homepage sections */
+.hero {
+  text-align: center;
+}
+
+.hero p {
+  margin: 10px auto 16px auto;
+  max-width: 65ch;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.button.secondary {
+  background: #f0f0f0;
+  color: #111;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.kicker {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: -6px;
+}
+
+@media (max-width: 700px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
 
