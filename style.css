@@ -211,7 +211,7 @@ footer {
 }
 .banner {
   width: 100%;
-  max-width: 1200px;   /* Match your desktop banner size */
+  max-width: 1300px;   /* Match your desktop banner size */
   height: auto;
   object-fit: contain;
   border-radius: 14px;
