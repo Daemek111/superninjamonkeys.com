@@ -204,7 +204,9 @@ footer {
 .banner {
   width: 100%;
   max-width: 900px;
-  height: auto;
+  height: 160px;          /* Controls banner height */
+  object-fit: cover;      /* Crops evenly */
+  object-position: center;/* Keeps focus centered */
   border-radius: 14px;
   margin: 0 auto 12px auto;
   display: block;
