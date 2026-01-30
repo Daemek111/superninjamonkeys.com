@@ -204,11 +204,14 @@ footer {
 .banner {
   width: 100%;
   max-width: 900px;
-  height: 160px;          /* Controls banner height */
-  object-fit: cover;      /* Crops evenly */
-  object-position: center;/* Keeps focus centered */
+  height: auto;
+  object-fit: contain;   /* shows full banner */
   border-radius: 14px;
   margin: 0 auto 12px auto;
   display: block;
 }
-
+@media (max-width: 600px) {
+  .banner {
+    max-width: 100%;
+  }
+}
