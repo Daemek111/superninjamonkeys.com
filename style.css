@@ -145,3 +145,39 @@ footer {
   border-radius: 10px;
   border: 1px solid #eee;
 }
+/* ================================
+   Mobile fixes
+   ================================ */
+@media (max-width: 520px) {
+  header {
+    padding: 18px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin: 10px auto 0 auto;
+    max-width: 28ch; /* encourages a clean wrap */
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;       /* fixes uneven spacing */
+    margin-top: 14px;
+  }
+
+  nav a {
+    margin: 0;                 /* remove desktop spacing */
+    padding: 8px 10px;         /* makes taps easier */
+    border-radius: 999px;
+    background: #f0f0f0;        /* makes it look intentional */
+    font-size: 0.95rem;
+  }
+}
