@@ -335,4 +335,7 @@ footer {
   border-left: 6px solid #111;
   background: linear-gradient(90deg, #e8f0ff, #ffffff);
 }
-
+.drops {
+  border-left: 6px solid #111;
+  background: linear-gradient(90deg, #eaffea, #ffffff);
+}
