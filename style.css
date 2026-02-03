@@ -392,3 +392,7 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+.product:target .badge::after {
+  content: " • SPOTLIGHT";
+  font-weight: 700;
+}
