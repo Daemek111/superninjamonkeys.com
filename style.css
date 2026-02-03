@@ -374,3 +374,21 @@ footer {
     max-width: 420px;
   }
 }
+/* Spotlight target effect */
+.product:target {
+  outline: 3px solid #111;
+  box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.35);
+  border-radius: 14px;
+  animation: spotlightPulse 1.2s ease-in-out 2;
+}
+
+@keyframes spotlightPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+/* Optional: smoother anchor jump */
+html {
+  scroll-behavior: smooth;
+}
