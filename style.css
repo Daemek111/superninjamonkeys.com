@@ -27,6 +27,23 @@ header h1 {
   margin-top: 8px;
 }
 
+/* Banner */
+.banner {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  margin: 0 auto 16px auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .banner {
+    max-width: 100%;
+  }
+}
+
 /* Navigation */
 nav {
   margin-top: 15px;
@@ -45,12 +62,10 @@ nav a:hover {
 
 /* Main Layout */
 main {
-  max-width: 1200px;   /* wider like a real catalog */
+  max-width: 1200px;
   margin: 30px auto;
   padding: 0 16px;
 }
-
-
 
 /* Card Sections */
 .card {
@@ -67,9 +82,9 @@ main {
 
 /* Buttons */
 .button {
-  display: flex;                /* makes centering perfect */
-  justify-content: center;      /* horizontal center */
-  align-items: center;          /* vertical center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 
   background: black;
@@ -79,7 +94,6 @@ main {
   text-decoration: none;
   font-weight: bold;
 }
-
 
 .button:hover {
   opacity: 0.85;
@@ -107,6 +121,9 @@ footer {
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .product img {
@@ -119,7 +136,6 @@ footer {
   background: white;
 }
 
-
 .product h3 {
   margin: 12px 0 6px 0;
 }
@@ -129,11 +145,10 @@ footer {
   margin: 6px 0 10px 0;
 }
 
-/* Badge labels (Personal / Consignment) */
 /* Badge styling */
 .badge {
   display: inline-block;
-   text-align: center;
+  text-align: center;
   font-size: 0.75rem;
   font-weight: 600;
   padding: 5px 10px;
@@ -154,8 +169,8 @@ footer {
 
 .card-images img {
   width: 49%;
-  aspect-ratio: 2 / 3;     /* Forces portrait card shape */
-  object-fit: contain;     /* Shows full image */
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
   object-position: center;
   background: #f8f8f8;
   border-radius: 10px;
@@ -163,43 +178,6 @@ footer {
   padding: 4px;
 }
 
-
-/* ================================
-   Mobile fixes
-   ================================ */
-@media (max-width: 520px) {
-  header {
-    padding: 18px;
-  }
-
-  header h1 {
-    font-size: 1.6rem;
-    line-height: 1.2;
-  }
-
-  .tagline {
-    font-size: 0.95rem;
-    line-height: 1.3;
-    margin: 10px auto 0 auto;
-    max-width: 28ch; /* encourages a clean wrap */
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;       /* fixes uneven spacing */
-    margin-top: 14px;
-  }
-
-  nav a {
-    margin: 0;                 /* remove desktop spacing */
-    padding: 8px 10px;         /* makes taps easier */
-    border-radius: 999px;
-    background: #f0f0f0;        /* makes it look intentional */
-    font-size: 0.95rem;
-  }
-}
 /* Listing details */
 .details {
   list-style: none;
@@ -209,43 +187,75 @@ footer {
 }
 
 .details li {
-  margin: 2px 0;          /* tighter spacing */
-  line-height: 1.25;      /* cleaner text wrap */
+  margin: 2px 0;
+  line-height: 1.25;
 }
-
 
 .details b {
   display: inline;
   font-weight: 700;
 }
 
-}
-.banner {
-  width: 100%;
-  max-width: 1200px;   /* Match your desktop banner size */
-  height: auto;
-  object-fit: contain;
-  border-radius: 14px;
-  margin: 0 auto 16px auto;
-  display: block;
-}
-
-@media (max-width: 600px) {
-  .banner {
-    max-width: 100%;
-  }
-}
 /* Keep product cards uniform and align buttons */
-.product {
-  display: flex;
-  flex-direction: column;
-}
-
 .product .button {
   margin-top: auto;
   margin-bottom: 6px;
 }
-/* Lightbox zoom */
+
+/* Sold badge + sold card styling */
+.badge.sold {
+  background: #ffe5e5;
+  color: #b00020;
+}
+
+.product.sold {
+  opacity: 0.75;
+}
+
+.product.sold .button {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ================================
+   Pagination
+   ================================ */
+
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.page-btn {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.page-btn.active {
+  font-weight: 700;
+  border-color: #111;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dots {
+  padding: 0 6px;
+}
+
+/* ================================
+   Lightbox zoom
+   ================================ */
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -267,24 +277,12 @@ footer {
   border-radius: 12px;
   background: white;
 }
-/* Sold badge + sold card styling */
-.badge.sold {
-  background: #ffe5e5;
-  color: #b00020;
-}
 
-.product.sold {
-  opacity: 0.75;
-}
+/* ================================
+   Homepage / Extras
+   ================================ */
 
-.product.sold .button {
-  pointer-events: none;
-  opacity: 0.6;
-}
-/* Homepage sections */
-.hero {
-  text-align: center;
-}
+.hero { text-align: center; }
 
 .hero p {
   margin: 10px auto 16px auto;
@@ -317,28 +315,25 @@ footer {
 }
 
 @media (max-width: 700px) {
-  .split {
-    grid-template-columns: 1fr;
-  }
+  .split { grid-template-columns: 1fr; }
 }
+
 /* Highlight mini-sections */
 .highlight {
   border-left: 6px solid #111;
   background: linear-gradient(90deg, #fff7e6, #ffffff);
 }
 
-.highlight h2 {
-  margin-top: 0;
-}
-
 .tip {
   border-left: 6px solid #111;
   background: linear-gradient(90deg, #e8f0ff, #ffffff);
 }
+
 .drops {
   border-left: 6px solid #111;
   background: linear-gradient(90deg, #eaffea, #ffffff);
 }
+
 /* Homepage Spotlight */
 .spotlight {
   border-left: 6px solid #111;
@@ -367,13 +362,10 @@ footer {
 }
 
 @media (max-width: 700px) {
-  .spotlight-grid {
-    grid-template-columns: 1fr;
-  }
-  .spotlight-img {
-    max-width: 420px;
-  }
+  .spotlight-grid { grid-template-columns: 1fr; }
+  .spotlight-img { max-width: 420px; }
 }
+
 /* Spotlight target effect */
 .product:target {
   outline: 3px solid #111;
@@ -388,66 +380,45 @@ footer {
   100% { transform: scale(1); }
 }
 
-/* Optional: smoother anchor jump */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
+
 .product:target .badge::after {
   content: " • SPOTLIGHT";
   font-weight: 700;
 }
-.pagination {
-  margin-top: 18px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
 
-.page-btn {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  background: #fff;
-  cursor: pointer;
-  border-radius: 8px;
-}
+/* ================================
+   Mobile fixes
+   ================================ */
 
-.page-btn.active {
-  font-weight: 700;
-  border-color: #111;
-}
+@media (max-width: 520px) {
+  header { padding: 18px; }
 
-.page-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+  header h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
 
-.dots {
-  padding: 0 6px;
-}
-.pagination {
-  margin: 24px 0 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.listings-card {
-  display: flex;
-  flex-direction: column;
-}
+  .tagline {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin: 10px auto 0 auto;
+    max-width: 28ch;
+  }
 
-#product-grid {
-  flex: 1;
-}
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
 
-.pagination {
-  margin-top: 24px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  width: 100%;
+  nav a {
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: #f0f0f0;
+    font-size: 0.95rem;
+  }
 }
