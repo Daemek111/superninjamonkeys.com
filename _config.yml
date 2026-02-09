@@ -1,0 +1,6 @@
+# Jekyll config
+title: superninjamonkeys.com
+
+# Prevent GitHub API throttling during Pages builds
+github:
+  metadata: false
