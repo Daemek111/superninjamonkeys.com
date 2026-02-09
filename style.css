@@ -434,3 +434,20 @@ html {
   flex-wrap: wrap;
   width: 100%;
 }
+.listings-card {
+  display: flex;
+  flex-direction: column;
+}
+
+#product-grid {
+  flex: 1;
+}
+
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
