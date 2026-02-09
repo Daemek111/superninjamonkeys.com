@@ -396,3 +396,33 @@ html {
   content: " • SPOTLIGHT";
   font-weight: 700;
 }
+.pagination {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.page-btn.active {
+  font-weight: 700;
+  border-color: #111;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dots {
+  padding: 0 6px;
+}
