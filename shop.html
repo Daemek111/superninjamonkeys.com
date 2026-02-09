@@ -3,15 +3,16 @@
 <head>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XT4NLP9X7Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-XT4NLP9X7Y');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XT4NLP9X7Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XT4NLP9X7Y');
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Shop Football Cards | Super Ninja Monkey Cards</title>
@@ -22,9 +23,9 @@
 <body>
   <header>
     <picture>
-  <source srcset="img/banner_mobile.png" media="(max-width: 600px)">
-  <img class="banner" src="img/banner.png" alt="Super Ninja Monkey Cards Banner">
-</picture>
+      <source srcset="img/banner_mobile.png" media="(max-width: 600px)">
+      <img class="banner" src="img/banner.png" alt="Super Ninja Monkey Cards Banner">
+    </picture>
 
     <p class="tagline">Football cards • Rookies • Slabs • Parallels • Weekly Drops</p>
 
@@ -38,18 +39,17 @@
   </header>
 
   <main>
-    <section class="card listings-card">
-  <h2>🔥 Current Listings</h2>
-
+    <section class="card">
       <h2>🛒 Shop Football Cards</h2>
       <p>
         Welcome to the shop! Most purchases currently happen through eBay for secure checkout and buyer protection.
       </p>
     </section>
 
-   
-     <div class="grid" id="product-grid">
+    <section class="card listings-card">
+      <h2>🔥 Current Listings</h2>
 
+      <div class="grid" id="product-grid">
 
         <div class="product">
   <div class="badge">Personal Inventory</div>
@@ -529,6 +529,7 @@
 
       </div>
       
+   <div id="pagination" class="pagination"></div>
     </section>
 
     <section class="card">
@@ -539,117 +540,120 @@
   <footer>
     <p>© 2026 Super Ninja Monkey Cards</p>
   </footer>
+
   <!-- Lightbox -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="Zoomed card image">
-</div>
-<script>
-  (function () {
-    const perPage = 12; // change to 6 / 9 / 12 as you want
-    const grid = document.getElementById("product-grid");
-    const paginationEl = document.getElementById("pagination");
-    if (!grid || !paginationEl) return;
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed card image">
+  </div>
 
-    const items = Array.from(grid.querySelectorAll(".product"));
-    if (items.length <= perPage) {
-      paginationEl.style.display = "none";
-      return;
-    }
+  <!-- Pagination script -->
+  <script>
+    (function () {
+      const perPage = 12; // change to 6 / 9 / 12 as you want
+      const grid = document.getElementById("product-grid");
+      const paginationEl = document.getElementById("pagination");
+      if (!grid || !paginationEl) return;
 
-    function getPageFromUrl() {
-      const params = new URLSearchParams(window.location.search);
-      const p = parseInt(params.get("page") || "1", 10);
-      return Number.isFinite(p) && p > 0 ? p : 1;
-    }
+      const items = Array.from(grid.querySelectorAll(".product"));
+      if (items.length <= perPage) {
+        paginationEl.style.display = "none";
+        return;
+      }
 
-    function setPageInUrl(page) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("page", String(page));
-      history.replaceState(null, "", url.toString());
-    }
+      function getPageFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const p = parseInt(params.get("page") || "1", 10);
+        return Number.isFinite(p) && p > 0 ? p : 1;
+      }
 
-    function renderPage(page) {
-      const totalPages = Math.max(1, Math.ceil(items.length / perPage));
-      page = Math.min(Math.max(1, page), totalPages);
+      function setPageInUrl(page) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", String(page));
+        history.replaceState(null, "", url.toString());
+      }
 
-      const start = (page - 1) * perPage;
-      const end = start + perPage;
+      function renderPage(page) {
+        const totalPages = Math.max(1, Math.ceil(items.length / perPage));
+        page = Math.min(Math.max(1, page), totalPages);
 
-      items.forEach((el, idx) => {
-        el.style.display = idx >= start && idx < end ? "" : "none";
-      });
+        const start = (page - 1) * perPage;
+        const end = start + perPage;
 
-      paginationEl.innerHTML = "";
-
-      const makeBtn = (label, targetPage, disabled, active) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.textContent = label;
-        btn.disabled = disabled;
-        btn.className = "page-btn" + (active ? " active" : "");
-        btn.addEventListener("click", () => {
-          setPageInUrl(targetPage);
-          renderPage(targetPage);
-          window.scrollTo({ top: 0, behavior: "smooth" });
+        items.forEach((el, idx) => {
+          el.style.display = idx >= start && idx < end ? "" : "none";
         });
-        return btn;
-      };
 
-      paginationEl.appendChild(makeBtn("Prev", page - 1, page === 1, false));
+        paginationEl.innerHTML = "";
 
-      // page number window
-      const windowSize = 5;
-      let startPage = Math.max(1, page - Math.floor(windowSize / 2));
-      let endPage = Math.min(totalPages, startPage + windowSize - 1);
-      startPage = Math.max(1, endPage - windowSize + 1);
+        const makeBtn = (label, targetPage, disabled, active) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = label;
+          btn.disabled = disabled;
+          btn.className = "page-btn" + (active ? " active" : "");
+          btn.addEventListener("click", () => {
+            setPageInUrl(targetPage);
+            renderPage(targetPage);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          return btn;
+        };
 
-      if (startPage > 1) {
-        paginationEl.appendChild(makeBtn("1", 1, false, page === 1));
-        if (startPage > 2) {
-          const dots = document.createElement("span");
-          dots.textContent = "…";
-          dots.className = "dots";
-          paginationEl.appendChild(dots);
+        paginationEl.appendChild(makeBtn("Prev", page - 1, page === 1, false));
+
+        const windowSize = 5;
+        let startPage = Math.max(1, page - Math.floor(windowSize / 2));
+        let endPage = Math.min(totalPages, startPage + windowSize - 1);
+        startPage = Math.max(1, endPage - windowSize + 1);
+
+        if (startPage > 1) {
+          paginationEl.appendChild(makeBtn("1", 1, false, page === 1));
+          if (startPage > 2) {
+            const dots = document.createElement("span");
+            dots.textContent = "…";
+            dots.className = "dots";
+            paginationEl.appendChild(dots);
+          }
         }
-      }
 
-      for (let p = startPage; p <= endPage; p++) {
-        paginationEl.appendChild(makeBtn(String(p), p, false, p === page));
-      }
-
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-          const dots = document.createElement("span");
-          dots.textContent = "…";
-          dots.className = "dots";
-          paginationEl.appendChild(dots);
+        for (let p = startPage; p <= endPage; p++) {
+          paginationEl.appendChild(makeBtn(String(p), p, false, p === page));
         }
-        paginationEl.appendChild(makeBtn(String(totalPages), totalPages, false, page === totalPages));
+
+        if (endPage < totalPages) {
+          if (endPage < totalPages - 1) {
+            const dots = document.createElement("span");
+            dots.textContent = "…";
+            dots.className = "dots";
+            paginationEl.appendChild(dots);
+          }
+          paginationEl.appendChild(makeBtn(String(totalPages), totalPages, false, page === totalPages));
+        }
+
+        paginationEl.appendChild(makeBtn("Next", page + 1, page === totalPages, false));
       }
 
-      paginationEl.appendChild(makeBtn("Next", page + 1, page === totalPages, false));
+      renderPage(getPageFromUrl());
+    })();
+  </script>
+
+  <!-- Lightbox script -->
+  <script>
+    function openLightbox(src) {
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      box.classList.add('open');
     }
 
-    const initialPage = getPageFromUrl();
-    renderPage(initialPage);
-  })();
-</script>
-
-<script>
-  function openLightbox(src) {
-    const box = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
-    img.src = src;
-    box.classList.add('open');
-  }
-
-  function closeLightbox() {
-    const box = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
-    box.classList.remove('open');
-    img.src = '';
-  }
-</script>
-
+    function closeLightbox() {
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      box.classList.remove('open');
+      img.src = '';
+    }
+  </script>
 </body>
 </html>
+
+
