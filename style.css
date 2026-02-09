@@ -426,3 +426,11 @@ html {
 .dots {
   padding: 0 6px;
 }
+.pagination {
+  margin: 24px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
