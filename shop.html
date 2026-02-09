@@ -543,6 +543,97 @@
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img" src="" alt="Zoomed card image">
 </div>
+<script>
+  (function () {
+    const perPage = 12; // change to 6 / 9 / 12 as you want
+    const grid = document.getElementById("product-grid");
+    const paginationEl = document.getElementById("pagination");
+    if (!grid || !paginationEl) return;
+
+    const items = Array.from(grid.querySelectorAll(".product"));
+    if (items.length <= perPage) {
+      paginationEl.style.display = "none";
+      return;
+    }
+
+    function getPageFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const p = parseInt(params.get("page") || "1", 10);
+      return Number.isFinite(p) && p > 0 ? p : 1;
+    }
+
+    function setPageInUrl(page) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("page", String(page));
+      history.replaceState(null, "", url.toString());
+    }
+
+    function renderPage(page) {
+      const totalPages = Math.max(1, Math.ceil(items.length / perPage));
+      page = Math.min(Math.max(1, page), totalPages);
+
+      const start = (page - 1) * perPage;
+      const end = start + perPage;
+
+      items.forEach((el, idx) => {
+        el.style.display = idx >= start && idx < end ? "" : "none";
+      });
+
+      paginationEl.innerHTML = "";
+
+      const makeBtn = (label, targetPage, disabled, active) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = label;
+        btn.disabled = disabled;
+        btn.className = "page-btn" + (active ? " active" : "");
+        btn.addEventListener("click", () => {
+          setPageInUrl(targetPage);
+          renderPage(targetPage);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        return btn;
+      };
+
+      paginationEl.appendChild(makeBtn("Prev", page - 1, page === 1, false));
+
+      // page number window
+      const windowSize = 5;
+      let startPage = Math.max(1, page - Math.floor(windowSize / 2));
+      let endPage = Math.min(totalPages, startPage + windowSize - 1);
+      startPage = Math.max(1, endPage - windowSize + 1);
+
+      if (startPage > 1) {
+        paginationEl.appendChild(makeBtn("1", 1, false, page === 1));
+        if (startPage > 2) {
+          const dots = document.createElement("span");
+          dots.textContent = "…";
+          dots.className = "dots";
+          paginationEl.appendChild(dots);
+        }
+      }
+
+      for (let p = startPage; p <= endPage; p++) {
+        paginationEl.appendChild(makeBtn(String(p), p, false, p === page));
+      }
+
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          const dots = document.createElement("span");
+          dots.textContent = "…";
+          dots.className = "dots";
+          paginationEl.appendChild(dots);
+        }
+        paginationEl.appendChild(makeBtn(String(totalPages), totalPages, false, page === totalPages));
+      }
+
+      paginationEl.appendChild(makeBtn("Next", page + 1, page === totalPages, false));
+    }
+
+    const initialPage = getPageFromUrl();
+    renderPage(initialPage);
+  })();
+</script>
 
 <script>
   function openLightbox(src) {
