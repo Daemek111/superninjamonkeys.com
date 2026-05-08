@@ -426,3 +426,39 @@ html { scroll-behavior: smooth; }
   grid-column: 1 / -1;   /* if it ever ends up in a grid, it spans full width */
   width: 100%;
 }
+/* ================================
+   Temporary Card Show Highlight
+   Remove after June 6, 2026
+   ================================ */
+
+.show-inventory-spotlight {
+  border: 3px solid #111;
+  border-left: 10px solid #111;
+  background: linear-gradient(90deg, #fff7d6, #ffffff);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+  position: relative;
+}
+
+.show-inventory-spotlight h2 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.show-inventory-spotlight .kicker {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.show-inventory-spotlight::before {
+  content: "CARD SHOW PREVIEW";
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 7px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
